@@ -57,17 +57,23 @@ while f1.alive() and f2.alive() and f3.alive():
     f1.print_status()
     f2.print_status()
     f3.print_status()
-    answer = input(f"Should {f1.name} attack? (Y or N) ")
-    if answer.lower() == "y":
+    answer = input(f"Should {f1.name} attack? (2 or 3) ")
+    if answer.lower() == "2":
         f1.attack(f2)
+    if answer.lower() == "3":
+        f1.attack(f3)
     if f2.alive():
-        answer = input(f"Should {f2.name} attack? (Y or N) ")
-        if answer.lower() == "y":
+        answer = input(f"Should {f2.name} attack? (1 or 3) ")
+        if answer.lower() == "1":
             f2.attack(f1)
+        if answer.lower() == "3":
+            f2.attack(f3)
     if f3.alive():
-        answer = input(f"Should {f3.name} attack? (Y or N) ")
-        if answer.lower() == "y":
+        answer = input(f"Should {f3.name} attack? (1 or 2) ")
+        if answer.lower() == "1":
             f3.attack(f1)
+        if answer.lower() == "2":
+            f3.attack(f2)
     round += 1
 
 print("Fight over.")
